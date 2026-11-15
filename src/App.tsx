@@ -35,7 +35,7 @@ export default function App() {
   return (
     <LangProvider>
       <AuthProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <ScrollManager />
           <Header />
           <Routes>

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
 import { headUrl } from '../data/content'
-import { SERVER } from '../data/server'
+import { asset, SERVER } from '../data/server'
 import { useCopy } from '../hooks/useCopy'
 import { LANGS, useLang } from '../i18n'
 import './Header.css'
@@ -18,7 +18,7 @@ export function Header() {
     <header className="header">
       <div className="header-inner">
         <Link to="/" className="header-logo" aria-label={t.nav.homeLabel} onClick={close}>
-          <img src="/logo-uplaycraft.png" alt="" width={305} height={305} />
+          <img src={asset('logo-uplaycraft.png')} alt="" width={305} height={305} />
         </Link>
 
         <nav className={`header-nav${open ? ' is-open' : ''}`} aria-label="Principal">

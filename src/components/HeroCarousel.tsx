@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { SERVER, SLIDES, type Slide } from '../data/server'
+import { asset, SERVER, SLIDES, type Slide } from '../data/server'
 import { useCopy } from '../hooks/useCopy'
 import { useLang } from '../i18n'
 import './HeroCarousel.css'
@@ -90,7 +90,7 @@ function SlideView({ slide, active, label }: { slide: Slide; active: boolean; la
       inert={!active}
     >
       {slide.image ? (
-        <img className="hero-image" src={slide.image} alt="" />
+        <img className="hero-image" src={asset(slide.image)} alt="" />
       ) : (
         <div className="hero-image hero-placeholder" style={{ background: slide.placeholder }}>
           <span>{t.hero.placeholder}</span>

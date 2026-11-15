@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SERVER } from '../data/server'
+import { asset, SERVER } from '../data/server'
 import { useLang } from '../i18n'
 import './Footer.css'
 
@@ -22,7 +22,7 @@ export function Footer() {
 
       <footer className="footer">
         <div className="wrap footer-inner">
-          <img src="/logo-uplaycraft.png" alt="UPlayCraft" width={72} height={72} />
+          <img src={asset('logo-uplaycraft.png')} alt="UPlayCraft" width={72} height={72} />
           <nav aria-label="Footer" className="footer-nav">
             <Link to="/loja">{t.nav.shop}</Link>
             <Link to="/entrar">{t.nav.login}</Link>

@@ -5,6 +5,9 @@ export const SERVER = {
   discord: 'https://discord.gg/GDDDQuq5T',
 }
 
+/** Caminho de arquivo da pasta public, respeitando o subcaminho do deploy */
+export const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '')
+
 export type SlideId = 'inicio' | 'skywars' | 'bedwars' | 'vip'
 
 export type Slide = {
