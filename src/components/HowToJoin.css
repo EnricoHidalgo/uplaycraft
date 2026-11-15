@@ -1,0 +1,119 @@
+.join-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.join-head .section-title {
+  margin: 0;
+}
+
+.join-toggle {
+  display: inline-flex;
+  padding: 4px;
+  background: var(--stone-light);
+  border-radius: 10px;
+}
+
+.join-toggle button {
+  border: 0;
+  padding: 9px 16px;
+  border-radius: 7px;
+  background: transparent;
+  color: #55575d;
+  font-weight: 500;
+}
+
+.join-toggle button.is-on {
+  background: var(--white);
+  color: var(--graphite);
+  box-shadow: 0 3px 0 #cfcdca;
+}
+
+/* Os passos são uma sequência de verdade: ligados por uma trilha de blocos */
+.join-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.join-steps::before {
+  content: '';
+  position: absolute;
+  top: 26px;
+  left: 56px;
+  right: 16%;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, var(--stone-light) 0 14px, transparent 14px 22px);
+}
+
+.join-step {
+  position: relative;
+}
+
+.join-num {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: var(--gold);
+  box-shadow: 0 5px 0 var(--gold-edge);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--graphite-edge);
+  position: relative;
+}
+
+.join-step h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--graphite);
+}
+
+.join-step p {
+  margin: 0;
+  max-width: 34ch;
+  color: #55575d;
+}
+
+.join-copy {
+  margin-top: 16px;
+}
+
+@media (max-width: 760px) {
+  .join-steps {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .join-steps::before {
+    top: 56px;
+    bottom: 40px;
+    left: 26px;
+    right: auto;
+    width: 4px;
+    height: auto;
+    background: repeating-linear-gradient(180deg, var(--stone-light) 0 14px, transparent 14px 22px);
+  }
+
+  .join-step {
+    padding-left: 76px;
+  }
+
+  .join-num {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

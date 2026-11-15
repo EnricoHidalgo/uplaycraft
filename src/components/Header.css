@@ -1,0 +1,242 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--graphite);
+  color: var(--white);
+  border-bottom: 5px solid var(--graphite-edge);
+}
+
+.header-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  height: 76px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* O logo "pendura" para fora da barra, por cima do banner */
+.header-logo {
+  align-self: flex-start;
+  margin-top: 6px;
+  flex: none;
+}
+
+.header-logo img {
+  width: 112px;
+  height: auto;
+}
+
+.header-nav {
+  display: flex;
+  gap: 28px;
+  font-weight: 500;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: var(--stone-light);
+  padding: 6px 0;
+  border-bottom: 3px solid transparent;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+  color: var(--white);
+  border-bottom-color: var(--gold);
+}
+
+.header-nav-logout {
+  display: none;
+}
+
+/* Usuário logado: cabeça da skin + nick + coins */
+.header-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px 5px 5px;
+  border-radius: 8px;
+  background: #33363e;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.header-user:hover {
+  background: #3d4049;
+}
+
+.header-user img {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  image-rendering: pixelated;
+}
+
+.header-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.header-user-nick {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.header-user-coins {
+  font-size: 0.8rem;
+  color: var(--gold);
+}
+
+.header-lang {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.header-lang button {
+  border: 0;
+  padding: 6px 7px;
+  border-radius: 6px;
+  background: transparent;
+  color: #9c9a97;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.header-lang button:hover {
+  color: var(--white);
+}
+
+.header-lang button[aria-pressed='true'] {
+  color: var(--graphite-edge);
+  background: var(--stone-light);
+}
+
+.header-lang-mobile {
+  display: none;
+}
+
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-ip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 15.5ch;
+  padding: 9px 14px;
+  border: 2px solid #3a3d45;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.header-ip:hover {
+  border-color: var(--stone);
+}
+
+.header-ip-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: #5fd068;
+  box-shadow: 0 0 0 3px rgba(95, 208, 104, 0.2);
+}
+
+.header-menu {
+  display: none;
+  padding: 9px 14px;
+  border: 2px solid #3a3d45;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--white);
+  font-weight: 500;
+}
+
+@media (max-width: 1100px) {
+  .header-ip {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .header-inner {
+    height: 64px;
+    gap: 16px;
+  }
+
+  .header-logo img {
+    width: 84px;
+  }
+
+  .header-menu {
+    display: inline-block;
+  }
+
+  .header-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px var(--gutter) 16px;
+    background: var(--graphite);
+    border-bottom: 5px solid var(--graphite-edge);
+  }
+
+  .header-nav.is-open {
+    display: flex;
+  }
+
+  .header-nav a {
+    padding: 12px 0;
+    border-bottom: 1px solid #3a3d45;
+  }
+
+  .header-actions .btn {
+    padding: 0.55em 1em;
+  }
+
+  .header-lang-desktop,
+  .header-user-coins {
+    display: none;
+  }
+
+  .header-user {
+    padding-right: 10px;
+  }
+
+  .header-user-nick {
+    max-width: 9ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .header-nav-logout {
+    display: block;
+    border: 0;
+    background: none;
+    padding: 12px 0;
+    text-align: left;
+    color: var(--stone-light);
+    font-weight: 500;
+    border-bottom: 1px solid #3a3d45;
+  }
+
+  .header-lang-mobile {
+    display: inline-flex;
+    margin-top: 12px;
+  }
+}

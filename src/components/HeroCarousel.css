@@ -1,0 +1,245 @@
+.hero {
+  max-width: var(--max);
+  margin: 28px auto 0;
+  padding: 0 var(--gutter);
+  touch-action: pan-y;
+}
+
+.hero-frame {
+  position: relative;
+  height: clamp(460px, 70vh, 660px);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--graphite);
+  /* "chão" de pedra embaixo do banner, mesmo volume do logo */
+  box-shadow: 0 8px 0 var(--stone-light);
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 500ms ease, visibility 0s linear 500ms;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 500ms ease;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-placeholder {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 20px 96px;
+}
+
+.hero-placeholder span {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Cartão branco no canto inferior esquerdo (o "texto do lado" do wireframe) */
+.hero-card {
+  position: absolute;
+  left: 96px;
+  bottom: 64px;
+  width: min(460px, calc(100% - 192px));
+  padding: 28px 30px 30px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 6px 0 var(--stone-light);
+}
+
+.hero-title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 1.4rem + 2vw, 2.9rem);
+  line-height: 1.02;
+  color: var(--graphite);
+}
+
+.hero-text {
+  margin: 0 0 22px;
+  max-width: 36ch;
+  color: #4a4c52;
+  font-size: 1.05rem;
+}
+
+.hero-ip-row {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-ip-value {
+  flex: 1 1 14ch;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  min-height: 48px;
+  background: var(--stone-light);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--graphite);
+}
+
+.hero-ip-row .btn {
+  flex: 1 0 auto;
+  justify-content: center;
+}
+
+.hero-ip-meta {
+  margin: 14px 0 0;
+  font-size: 0.875rem;
+  color: var(--stone);
+}
+
+/* Setas: blocos escuros que afundam no clique */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -28px;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: var(--graphite);
+  color: var(--gold);
+  box-shadow: 0 5px 0 var(--graphite-edge);
+  transition: transform 80ms ease, box-shadow 80ms ease;
+}
+
+.hero-arrow:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 var(--graphite-edge);
+}
+
+.hero-arrow-prev {
+  left: 24px;
+}
+
+.hero-arrow-prev svg {
+  transform: scaleX(-1);
+}
+
+.hero-arrow-next {
+  right: 24px;
+}
+
+.hero-dots {
+  position: absolute;
+  right: 96px;
+  bottom: 64px;
+  display: flex;
+  gap: 8px;
+}
+
+.hero-dot {
+  position: relative;
+  width: 36px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.45);
+  overflow: hidden;
+}
+
+.hero-dot.is-active {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hero-dot.is-active:not(:has(.hero-dot-fill)) {
+  background: var(--gold);
+}
+
+/* Barra que enche no tempo do autoplay */
+.hero-dot-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform-origin: left;
+  animation: hero-fill linear forwards;
+}
+
+@keyframes hero-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    margin-top: 20px;
+  }
+
+  .hero-frame {
+    height: auto;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .hero-placeholder {
+    padding: 16px;
+  }
+
+  .hero-card {
+    left: 12px;
+    right: 12px;
+    bottom: 44px;
+    width: auto;
+    padding: 22px;
+  }
+
+  .hero-arrow {
+    top: 16px;
+    margin-top: 0;
+    width: 44px;
+    height: 44px;
+  }
+
+  .hero-arrow-prev {
+    left: auto;
+    right: 68px;
+  }
+
+  .hero-arrow-next {
+    right: 16px;
+  }
+
+  .hero-dots {
+    left: 0;
+    right: 0;
+    bottom: 18px;
+    justify-content: center;
+  }
+
+  .hero-placeholder {
+    justify-content: flex-start;
+  }
+}
